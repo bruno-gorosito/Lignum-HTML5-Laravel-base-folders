@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(226, 226, 226);
+        }
+
+        form {
+            background-color: white;
+            padding: 1rem;
+            border-radius: .5rem;
+            border: 1px solid #4d3d3d;
+        }
+
+
+        .row {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: .5rem 0;
+            column-gap: .5rem;
+        }
+
+        .form-group {
+            width: calc(50% - .25rem);
+        }
+
+        input,
+        textarea,
+        select {
+            display: block;
+            width: 100%;
+            padding: .5rem;
+            border: 1px solid;
+            border-radius: .2rem;
+        }
+
+        input {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#!">
+        <div class="row">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Apellido:</label>
+                <input type="text" name="lastName" id="lastName"  required>
+            </div>
+        </div>
+
+        <div class="row">
+            <label for="email">Correo Electronico:</label>
+            <input type="email" name="email" id="email"  required>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                
+                <label for="birthday">Cumpleaños:</label>
+                <input type="date" name="birthday" id="birthday"  required>
+            </div>
+            <div class="form-group">
+                <label for="favoriteSport">Deporte Favorito:</label>
+                <select name="favoriteSport" id="favoriteSport"  required>
+                    <option value="" disabled selected>Seleccione uno</option>
+                    <option value="basquet">Basquet</option>
+                    <option value="futbol">Futbol</option>
+                    <option value="tenis">Tenis</option>
+                    <option value="voley">Voley</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="row">
+            <label for="biography">Biografía:</label>
+            <textarea name="biography" id="biography"  required placeholder="Escriba su biografía aquí"></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpiar</button>
+    </form>
+</body>
+
+</html>
