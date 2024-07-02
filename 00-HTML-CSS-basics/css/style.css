@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 header,
 footer,
 aside,
@@ -102,3 +103,39 @@ body {
     grid-area: footer;
 }
 
+=======
+
+
+
+header,
+footer,
+nav,
+aside,
+section,
+article {
+    background-color: rgb(148, 148, 148);
+    border-radius: .4rem;
+    padding: 1rem 0;
+    text-align: center;
+    margin: .2rem;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+section {
+    flex: 3;
+}
+
+nav,
+aside {
+    flex: 1;
+}
+
+section :is(header, article, footer) {
+    background-color: white;
+}
+>>>>>>> 9db2be3b27645607dfff6ba57077bef64455a232
