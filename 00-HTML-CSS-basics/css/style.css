@@ -1,20 +1,104 @@
-
-
 header,
 footer,
 aside,
 nav {
-    background-image: url(https://img.freepik.com/foto-gratis/colores-arremolinados-interactuan-danza-fluida-sobre-lienzo-que-muestra-tonos-vibrantes-patrones-dinamicos-que-capturan-caos-belleza-arte-abstracto_157027-2892.jpg?size=626&ext=jpg&ga=GA1.1.2113030492.1719792000&semt=sph);
-}
+    background: url(https://i.pinimg.com/236x/e9/04/c5/e904c5e5153bd1f31d60a3704a1bf3e3.jpg);
+    background-position: center;
+    background-size: cover;
 
+}
 
 html {
     font-size: 14px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
+    color: rgb(0, 214, 221);
+    text-align: center;
 }
+
 
 header,
 footer {
     text-align: center;
 }
+
+.header {
+    font-size: 46px;
+}
+
+.footer {
+    font-size: 10px;
+}
+
+.content {
+    font-size: 14px;
+}
+
+.navigation {
+    font-size: 12px;
+}
+
+.sidebar {
+    font-size: 10px;
+}
+
+
+[class$='r'] {
+    background: magenta;
+}
+
+[class*='a']:not([class$='r']) {
+    background: red;
+}
+
+
+/* ¿Cómo podría agregar peso a la definición de fuente global(global font definition) para ganarse las clases agregadas por el punto 3? 
+
+Añadiendo especificidad en la etiqueta. Por ejemplo añadiendo !important en la propiedad.
+*/
+
+/* 
+Imagine que hay una declaración como class=”no-puedo-usar-inline-styles” style=”background:red” y necesita cambiar el fondo a verde sin cambiar el estilo en línea. ¿Cómo podrías lograr esto?
+*/
+
+.no-puedo-usar-inline-style {
+    background: green !important;
+}
+
+
+/* Añadimos propiedades del grid para que tome la forma solicitada en el enunciado */
+body {
+    display: grid;
+    grid-template-areas: "header header header"
+                         "navigation content sidebar"
+                         "footer footer footer";
+    gap: .5rem;
+}
+
+* {
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    grid-area: header;
+}
+
+
+.navigation {
+    grid-area: navigation;
+}
+
+.content {
+    grid-area: content;
+    background-color: grey;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.footer {
+    grid-area: footer;
+}
+
