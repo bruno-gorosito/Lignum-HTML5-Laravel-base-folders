@@ -57,7 +57,7 @@
 </head>
 
 <body>
-    <form action="#!">
+    <form action="">
         <div class="row">
             <div class="form-group">
                 <label for="name">Nombre:</label>
@@ -81,7 +81,7 @@
             </div>
             <div class="form-group">
                 <label for="favoriteSport">Deporte Favorito:</label>
-                <select name="favoriteSport" id="favoriteSport"  required>
+                <select name="favoriteSport" id="favoriteSport" size="2" mul required>
                     <option value="" disabled selected>Seleccione uno</option>
                     <option value="basquet">Basquet</option>
                     <option value="futbol">Futbol</option>
@@ -93,11 +93,12 @@
         
         <div class="row">
             <label for="biography">Biografía:</label>
-            <textarea name="biography" id="biography"  required placeholder="Escriba su biografía aquí"></textarea>
+            <textarea name="biography" id="biography" rows="5" cols="1" required placeholder="Escriba su biografía aquí"></textarea>
         </div>
         <button type="submit">Enviar</button>
         <button type="reset">Limpiar</button>
     </form>
+    
 </body>
 
 </html>
