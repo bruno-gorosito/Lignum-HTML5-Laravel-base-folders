@@ -9,12 +9,24 @@
 <body>
     <h1>Actividad de JavaScript</h1>
     <section>Soy una parte</section>
-    <section id="hidden-section">
-        Hello World
-    </section>
+    <main>
+        <section id="hidden-section">
+            Hello World
+            
+        </section>
+        <section id="repositorio">
+            <input type="text" name="busqueda" id="busqueda">
+            <button onclick="consultarRepositorios()">Consultar repo</button>
+            <ul id="listado">
 
+            </ul>
+        </section>
+    </main>
     <button onclick="llamarAChuck()">Alertar</button>
 
+    <section id="table-section">
+
+    </section>
     <script src="/01-JS-DOM-APIs/sectionVisibility.js"></script>
 
 </body>
