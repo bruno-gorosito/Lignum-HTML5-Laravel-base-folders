@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::table('peliculas', function (Blueprint $table) {
-            $table->tinyInteger('favorito');
+            $table->boolean('favorito')->default(false);
         });
     }
 

@@ -12,11 +12,12 @@ class Actor extends Model
 
     protected $fillable = [
         'nombre',
-        'fecha_nacimiento'
+        'fecha_nacimiento',
+        'timestamps'
     ];
 
     public function peliculas() {
-        $this->hasMany(Pelicula::class);
+        return $this->hasMany(Pelicula::class);
     }
 
 }

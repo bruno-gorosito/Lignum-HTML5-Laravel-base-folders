@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ActorController;
+use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('actor', ActorController::class);
+
+Route::resource('pelicula', PeliculaController::class);
+
+Route::patch('pelicula/{pelicula}/updateFav', [PeliculaController::class, 'updateFav'])->name('pelicula.updateFav');
+
