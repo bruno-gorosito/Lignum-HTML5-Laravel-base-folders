@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('main-content')
-    <a href="{{ url('pelicula') }}" class="button">Volver</a>
-    <form action="{{url('pelicula')}}" method="POST" enctype="multipart/form-data">
+    <a href="{{url('movie')}}" class="button">Volver</a>
+    <form action="{{url('movie')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="titulo">Titulo:</label>
@@ -19,15 +19,13 @@
                 <input type="number" name="anio" id="anio">
             </div>
         </div>
-        <div class="form-group">
-            <label for="sipnosis">Sipnosis:</label>
-            <input type="text" name="sipnosis" id="sipnosis">
-        </div>
+        
+        
         <div class="form-group">
             <label for="actorprincipal">Actor princial:</label>
             <select name="actorprincipal" id="actorprincipal">
                 @foreach ($actors as $actor)
-                    <option value={{ $actor->id }}>{{ $actor->nombre }}</option>
+                    <option value={{ $actor->ActorID }}>{{ $actor->ActorName }}</option>
                 @endforeach
             </select>
         </div>
@@ -39,4 +37,6 @@
             Crear
         </button>
     </form>
+
+    
 @endsection

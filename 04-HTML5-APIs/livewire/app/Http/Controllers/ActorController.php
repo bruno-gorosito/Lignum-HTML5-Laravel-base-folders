@@ -12,13 +12,9 @@ class ActorController extends Controller
      */
     public function index()
     {
-        //select * from actores limit 100 order by actores.id desc;
-
-        // $actors = Actor::where('id', '>', 100)->dd();
-        // $actors = Actor::orderBy('id', 'desc')->take(100)->dd();
+        //
         $actors = Actor::all();
-
-        return view('actor.index', [
+        return view('actor.ActorIndex', [
             'actors' => $actors
         ]);
     }
@@ -29,7 +25,8 @@ class ActorController extends Controller
     public function create()
     {
         //
-        return view('actor.create');
+
+        return view('actor.actorCreate');
     }
 
     /**
@@ -38,14 +35,17 @@ class ActorController extends Controller
     public function store(Request $request)
     {
         //
-        $validated = $request->validate([
+        $validatedData = $request->validate([
             'nombre' => 'required|string|max:255',
-            'fecha_nacimiento' => 'required|date'
+            'fecha_nacimiento' => 'sometimes|date'
+        ]);
+        $actor = $request->all();
+        $newActor = Actor::create([
+            'ActorName' => $validatedData['nombre'],
+            'ActorBirthday' => $validatedData['fecha_nacimiento']
         ]);
 
-        $actor = new Actor($validated);
-        $actor->save();
-        return redirect(route('actor.index'));
+        return redirect('/actor');
     }
 
     /**
@@ -54,9 +54,6 @@ class ActorController extends Controller
     public function show(string $id)
     {
         //
-        $actor = Actor::find($id);
-
-        return view('actor.show', compact('actor'));
     }
 
     /**
@@ -78,11 +75,8 @@ class ActorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Actor $actor)
+    public function destroy(string $id)
     {
         //
-        $actor->delete();
-        return redirect(route('actor.index'));
-
     }
 }

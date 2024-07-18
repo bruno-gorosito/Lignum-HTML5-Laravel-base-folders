@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::table('peliculas', function (Blueprint $table) {
-            $table->foreignId('actorprincipal_id')->constrained(table: 'actors', indexName: 'id');
+        Schema::create('Actor', function (Blueprint $table) {
+            $table->id('ActorID');
+            $table->timestamps();
+            $table->string('ActorName');
+            $table->date('ActorBirthday')->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('Actor');
     }
 };
