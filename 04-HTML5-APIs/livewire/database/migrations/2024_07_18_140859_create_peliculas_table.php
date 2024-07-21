@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('MovieLength')->nullable();
             $table->integer('MovieYear')->nullable();
             $table->unsignedBigInteger('ActorPrincipalID')->nullable();
-            $table->string('MovieImage')->nullable()->default('/storage/portada/default.png');
+            $table->string('MovieImage')->nullable()->default('/storage/portada/default.jpg');
             $table->foreign('ActorPrincipalID')->references('ActorID')->on('Actor')->onDelete('cascade');
             $table->softDeletes();
         });

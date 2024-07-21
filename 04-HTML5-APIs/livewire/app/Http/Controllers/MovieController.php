@@ -38,9 +38,8 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         //
-        
+
         $validatedData = $request->validate([
-            'imagen' => 'sometimes|image',
             'titulo' => 'required|string|max:255',
             'anio' => 'sometimes|integer',
             'duracion' => 'sometimes|integer',
@@ -56,7 +55,7 @@ class MovieController extends Controller
                 'MovieLength' => $validatedData['duracion'],
                 'MovieTitle' => $validatedData['titulo'],
                 'ActorPrincipalID' => $validatedData['actorprincipal'],
-                'MovieImage' => $portada
+                'MovieImage' => "/storage/" . $portada
             ]);
         }
 

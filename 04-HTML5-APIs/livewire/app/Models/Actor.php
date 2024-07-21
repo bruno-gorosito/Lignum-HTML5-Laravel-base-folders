@@ -12,6 +12,7 @@ class Actor extends Model
 
     use SoftDeletes;
 
+    protected $primaryKey = 'ActorID';
     protected $table = 'Actor';
 
     protected $fillable = [
@@ -20,10 +21,8 @@ class Actor extends Model
         'ActorBirthday'
     ];
 
-    public function movies() {
+    public function movies()
+    {
         return $this->hasMany(Movie::class, 'ActorPrincipalID', 'ActorID');
     }
-
-
-
 }

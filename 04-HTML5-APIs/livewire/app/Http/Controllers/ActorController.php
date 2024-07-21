@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Actor;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ActorController extends Controller
 {
@@ -18,6 +19,8 @@ class ActorController extends Controller
             'actors' => $actors
         ]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,25 +54,44 @@ class ActorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Actor $actor)
     {
         //
+        return view('actor.ActorShow', [
+            'actor' => $actor
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Actor $actor)
     {
         //
+        return view('actor.ActorUpdate', [
+            'actor' => $actor
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Actor $actor)
     {
         //
+
+        try {
+
+            $dataValidated = $request->validate([
+                'ActorName' => 'sometimes|string|max:255',
+                'ActorBirthday' => 'sometimes|date'
+            ]);
+            $actor->update($dataValidated);
+
+            return $actor;
+        } catch (ValidationException $e) {
+            return abort(400, $e->validator->errors()->all());
+        }
     }
 
     /**

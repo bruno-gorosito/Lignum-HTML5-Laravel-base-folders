@@ -14,16 +14,20 @@ class Movie extends Model
 
     protected $table = 'Movie';
 
+    protected $primaryKey = "MovieID";
+
     protected $fillable = [
         'MovieID',
         'MovieTitle',
         'MovieLength',
         'MovieYear',
-        'ActorPrincipalID'
+        'ActorPrincipalID',
+        'MovieImage'
     ];
 
 
-    public function actorPrincipal(){
+    public function actorPrincipal()
+    {
         return $this->belongsTo(Actor::class, 'ActorPrincipalID', 'ActorID');
     }
 }

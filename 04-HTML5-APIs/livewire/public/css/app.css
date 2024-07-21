@@ -252,7 +252,6 @@ table form {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.459);
     top: 0;
     left: 0;
     z-index: 100;
@@ -261,9 +260,32 @@ table form {
     align-items: center;
 }
 
-
+.bg-black {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.459);
+    z-index: 1;
+    
+}
 .modal {
     background-color: white;
-    
+    padding: 1rem;
+    max-width: 800px;
+    display: flex;
+    gap: 2rem;
+    z-index: 101;
+}
+
+.form-group.btn {
+    justify-content: right;
+}
+
+.modal form {
+    width: 70%;
+}
+
+.modal img {
+    width: 30%;
 }
 
