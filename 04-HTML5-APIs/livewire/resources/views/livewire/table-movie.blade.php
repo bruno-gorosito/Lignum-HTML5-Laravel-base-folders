@@ -13,7 +13,7 @@
             <tr>
                 <td>{{ $movie->MovieTitle }}</td>
                 <td>{{ $movie->MovieYear ?? 'N/A' }}</td>
-                <td>{{ $movie->MovieLength ?? 'N/A' }}</td>
+                <td>{{ $movie->MovieLength . ' minutos' ?? 'N/A' }}</td>
                 <td><span wire:click="modalVer({{ $movie->MovieID }})">Ver</span> |
                     <span wire:click="modalEditar({{ $movie->MovieID }})">Editar</span> |
                     <span wire:click="eliminar()">Eliminar</span>

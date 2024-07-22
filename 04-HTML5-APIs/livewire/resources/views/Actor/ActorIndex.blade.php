@@ -35,8 +35,10 @@
         $.ajax({
             url: `/actor/${id}`,
             type: 'get',
-            success: data =>
+            success: data => {
+                console.log(data);
                 cargarContenidoModal(data)
+            }
 
         })
     }

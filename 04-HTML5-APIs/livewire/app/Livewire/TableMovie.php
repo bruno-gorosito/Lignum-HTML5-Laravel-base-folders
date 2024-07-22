@@ -82,6 +82,7 @@ class TableMovie extends Component
     public function modalVer(string $id)
     {
         $this->cargarDatos($id);
+        $this->actorPrincipal = Actor::find($this->actorPrincipal);
         $this->typeModal = 'show';
         $this->modal = true;
     }
